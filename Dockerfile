@@ -14,5 +14,5 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 
 # Set the default command to run when the container starts
-CMD ["python", "app.py", "--host=0.0.0.0"]
+CMD ["python", "main.py", "--host=0.0.0.0"]
 

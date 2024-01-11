@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-demo
+  template:
+    metadata:
+      labels:
+        app: app-demo
+    spec:
+      containers:
+        - name: app-demo
+          image: hrittik/abcde:latest
+          ports:
+           - containerPort: 5000
+          env:
+          - name: COLOR_ENV
+            valueFrom:
+              secretKeyRef:
+                name: color
+                key: COLOR_ENV
